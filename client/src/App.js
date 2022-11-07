@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SignUp from "./pages/Signup";
 import Login from "./pages/Login";
+import ApplicationForm from "./pages/ApplicationForm";
 
 const theme = createTheme({
   palette: {
@@ -45,23 +46,25 @@ function App() {
               <Homepage/>
             }
           />
-        </Routes>
-        <Routes>
           <Route
             path="/signup"
             element={
               <SignUp/>
             }
-          />
-        </Routes>
-        <Routes>
+            />
           <Route
             path="/login"
             element={
               <Login/>
             }
-          />
-        </Routes>
+            />
+            <Route
+            path="/application-form"
+            element={
+              <ApplicationForm/>
+            }
+            />
+            </Routes>
       </div>
       <Footer/>
     </ThemeProvider>

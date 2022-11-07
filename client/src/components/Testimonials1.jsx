@@ -42,7 +42,7 @@ export default function Testimonials() {
         Testimonials
       </Typography>
       <Card sx={{ maxWidth: 345, boxShadow: 4,
-                  borderRadius: "12px" }}>
+                  borderRadius: "12px", backgroundColor: "#F8F9FF" }}>
         <CardContent style={{ }}>
          <Avatar {...stringAvatar('Kent Dodds')} />
           <Typography variant="body2" align="left" color="text.secondary">

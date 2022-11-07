@@ -7,18 +7,14 @@ import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import MoreIcon from "@mui/icons-material/MoreVert";
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-// import { AuthContext } from "../context/auth";
 import { Container, Button } from "@mui/material";
 import LoginForm from "./LoginForm";
-// import CloudinaryAvatar from "../UI/CloudinaryAvatar";
+import SettingsIcon from '@mui/icons-material/Settings';
+import logoTechstart from './../img/logoTechstart.png'
 
 export default function Navbar() {
-  // const { logoutUser } = useContext(AuthContext);
-
-  // const [openSignUpForm, setOpenSignUpForm] = useState(false);
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
@@ -26,22 +22,14 @@ export default function Navbar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  // const handleSettingsMenuOpen = (event) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
+  const handleSettingsMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-  // const handleMenuClose = () => {
-  //   setAnchorEl(null);
-  //   handleMobileMenuClose();
-  // };
-
-  // const handleSignUpFormOpen = () => {
-  //   setOpenSignUpForm(true);
-  // };
-
-  // const handleSignUpFormClose = () => {
-  //   setOpenSignUpForm(false);
-  // };
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+    handleMobileMenuClose();
+  };
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -51,27 +39,27 @@ export default function Navbar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  //   const menuId = "primary-search-account-menu";
-  //   const renderMenu = (
-  //       <Menu
-  //           anchorEl={anchorEl}
-  //           anchorOrigin={{
-  //               vertical: "top",
-  //               horizontal: "right",
-  //           }}
-  //           id={menuId}
-  //           keepMounted
-  //           transformOrigin={{
-  //               vertical: "top",
-  //               horizontal: "right",
-  //           }}
-  //           open={isMenuOpen}
-  //           onClose={handleMenuClose}
-  //       >
-  //           <MenuItem onClick={handleMenuClose}>Account & Settings</MenuItem>
-  //           <MenuItem onClick=''>Log Out</MenuItem>
-  //       </Menu>
-  //   );
+    const menuId = "primary-search-account-menu";
+    const renderMenu = (
+        <Menu
+            anchorEl={anchorEl}
+            anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+            }}
+            id={menuId}
+            keepMounted
+            transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+            }}
+            open={isMenuOpen}
+            onClose={handleMenuClose}
+        >
+            <MenuItem onClick={handleMenuClose}>Account & Settings</MenuItem>
+            <MenuItem onClick=''>Log Out</MenuItem>
+        </Menu>
+    );
 
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
@@ -108,8 +96,11 @@ export default function Navbar() {
       <MenuItem>
         <p>APPLY NOW</p>
       </MenuItem>
-      {/* <MenuItem onClick={handleSettingsMenuOpen}>
-        <IconButton
+      <MenuItem>
+        <p>LOGIN</p>
+      </MenuItem>
+      <MenuItem onClick={handleSettingsMenuOpen}>
+        {/* <IconButton
           size="small"
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
@@ -117,27 +108,26 @@ export default function Navbar() {
           color="inherit"
         >
           <SettingsIcon />
-        </IconButton>
-        <p>Settings</p>
-      </MenuItem> */}
+        </IconButton> */}
+        <p>SETTINGS</p>
+      </MenuItem>
     </Menu>
   );
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ backgroundColor: "transparent" }}>
+      <AppBar position="static" style={{ backgroundColor: "#F8F9FF" }}>
         <Container maxWidth="xl">
           <Toolbar>
             <Link to="/" style={{ color: "black", textDecoration: "none" }}>
               <Box
                 component="img"
                 sx={{
-                  maxWidth: "30%",
+                  // maxWidth: "100%",
                   height: "auto",
                 }}
                 alt="Techstart logo"
-                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
-                // src="./../public/logo-techstart.png"
+                src={logoTechstart}
               />
             </Link>
             <Box sx={{ flexGrow: 1 }} />
@@ -205,49 +195,10 @@ export default function Navbar() {
                 variant="button"
                 sx={{ mt: 3, mb: 2, py: 1 }}
                 endIcon={""}
-                // onClick={handleSignUpFormOpen}
                 style={{
-                  backgroundColor: "#F3C522",
+                  backgroundColor: "#F1005F",
                   border: "2px solid black",
-                  color: "#1D1D1F",
-                  fontWeight: "bold",
-                  boxShadow: "0px 2px 0px #000000",
-                  borderRadius: "12px",
-                  whiteSpace: "nowrap",
-                  minWidth: "auto",
-                }}
-              >
-                Signup
-              </Button>
-              <Button
-                href="/"
-                type="submit"
-                variant="button"
-                sx={{ mt: 3, mb: 2, py: 1 }}
-                endIcon={""}
-                style={{
-                  backgroundColor: "#F3C522",
-                  border: "2px solid black",
-                  color: "#1D1D1F",
-                  fontWeight: "bold",
-                  boxShadow: "0px 2px 0px #000000",
-                  borderRadius: "12px",
-                  whiteSpace: "nowrap",
-                  minWidth: "auto",
-                }}
-              >
-                <LoginForm/>
-              </Button>
-              <Button
-                href="/"
-                type="submit"
-                variant="button"
-                sx={{ mt: 3, mb: 2, py: 1 }}
-                endIcon={""}
-                style={{
-                  backgroundColor: "#F3C522",
-                  border: "2px solid black",
-                  color: "#1D1D1F",
+                  color: "#FFFFFF",
                   fontWeight: "bold",
                   boxShadow: "0px 2px 0px #000000",
                   borderRadius: "12px",
@@ -257,7 +208,25 @@ export default function Navbar() {
               >
                 Apply now
               </Button>
-
+              <Button
+                href="/"
+                type="submit"
+                variant="button"
+                sx={{ mt: 3, mb: 2, py: 1 }}
+                endIcon={""}
+                style={{
+                  backgroundColor: "#F1005F",
+                  border: "2px solid black",
+                  color: "#FFFFFF",
+                  fontWeight: "bold",
+                  boxShadow: "0px 2px 0px #000000",
+                  borderRadius: "12px",
+                  whiteSpace: "nowrap",
+                  minWidth: "auto",
+                }}
+              >
+                Log In
+              </Button>
               {/* <Link to='/profile/me' style={{ textDecoration: "none" }}>
                                 <IconButton
                                     size='small'
@@ -281,7 +250,7 @@ export default function Navbar() {
                 size="small"
                 aria-label="show more"
                 aria-controls={mobileMenuId}
-                // aria-haspopup="true"
+                aria-haspopup="true"
                 onClick={handleMobileMenuOpen}
                 color="inherit"
               >
@@ -292,7 +261,7 @@ export default function Navbar() {
         </Container>
       </AppBar>
       {renderMobileMenu}
-      {/* {renderMenu} */}
+      {renderMenu}
     </Box>
   );
 }

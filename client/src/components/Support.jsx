@@ -18,7 +18,7 @@ import AddIcon from "@mui/icons-material/Add";
 
 function Support() {
   return (
-    <Container maxWidth="xl" style={{ padding: "6rem" }}>
+    <Container maxWidth="xl" style={{ padding: "3rem 10rem" }}>
       <Typography
         variant="h3"
         align="center"
@@ -36,7 +36,7 @@ function Support() {
       </Typography>
       <Grid container sx={{ gap: "2rem", paddingTop: "2rem" }}>
         {/* Card 1 */}
-        <Card sx={{ maxWidth: 345, boxShadow: 4, borderRadius: "12px" }}>
+        <Card sx={{ maxWidth: 345, boxShadow: 4, borderRadius: "12px", backgroundColor: "#F8F9FF"  }}>
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: purple[500] }}>
@@ -61,9 +61,9 @@ function Support() {
               variant="button"
               sx={{ mt: 3, mb: 2, py: 1 }}
               style={{
-                backgroundColor: "#F3C522",
+                backgroundColor: "#915FC7",
                 border: "2px solid black",
-                color: "#1D1D1F",
+                color: "#FFFFFF",
                 fontWeight: "bold",
                 boxShadow: "0px 2px 0px #000000",
                 borderRadius: "12px",
@@ -74,7 +74,7 @@ function Support() {
           </CardContent>
         </Card>
         {/* Card 2 */}
-        <Card sx={{ maxWidth: 345, boxShadow: 4, borderRadius: "12px" }}>
+        <Card sx={{ maxWidth: 345, boxShadow: 4, borderRadius: "12px", backgroundColor: "#F8F9FF"  }}>
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: purple[500] }} aria-label="recipe">
@@ -99,9 +99,9 @@ function Support() {
               variant="button"
               sx={{ mt: 3, mb: 2, py: 1 }}
               style={{
-                backgroundColor: "#F3C522",
+                backgroundColor: "#915FC7",
                 border: "2px solid black",
-                color: "#1D1D1F",
+                color: "#FFFFFF",
                 fontWeight: "bold",
                 boxShadow: "0px 2px 0px #000000",
                 borderRadius: "12px",
@@ -112,7 +112,7 @@ function Support() {
           </CardContent>
         </Card>
         {/* Card 3 */}
-        <Card sx={{ maxWidth: 345, boxShadow: 4, borderRadius: "12px" }}>
+        <Card sx={{ maxWidth: 345, boxShadow: 4, borderRadius: "12px", backgroundColor: "#F8F9FF"  }}>
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: purple[500] }} aria-label="recipe">
@@ -137,9 +137,9 @@ function Support() {
               variant="button"
               sx={{ mt: 3, mb: 2, py: 1 }}
               style={{
-                backgroundColor: "#F3C522",
+                backgroundColor: "#915FC7",
                 border: "2px solid black",
-                color: "#1D1D1F",
+                color: "#FFFFFF",
                 fontWeight: "bold",
                 boxShadow: "0px 2px 0px #000000",
                 borderRadius: "12px",

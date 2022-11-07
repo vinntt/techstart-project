@@ -3,45 +3,50 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { Container } from "@mui/system";
 import { Link, Typography } from "@mui/material";
+import logoAndreasGerlStiftung from './../img/logoAndreasGerlStiftung.png'
+import logoCode from './../img/logoCode.png'
+import logoEzA from './../img/logoEzA.png'
+import logoInco from './../img/logoInco.png'
+import logoVBKI from './../img/logoVBKI.png'
 
 const partnerLists = [
   {
-    img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-    title: "Breakfast",
-    href: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+    img: {logoCode},
+    title: "CODE University of Applied Sciences",
+    href: "https://code.berlin/en/",
   },
   {
-    img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-    title: "Burger",
-    href: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+    img: {logoAndreasGerlStiftung},
+    title: "Andreas Gerl Stiftung",
+    href: "https://www.gerl-stiftung.de/",
   },
   {
-    img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
-    title: "Camera",
-    href: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+    img: {logoEzA},
+    title: "Einstieg zum Aufstieg",
+    href: "https://einstiegzumaufstieg.de/",
   },
   {
-    img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
-    title: "Coffee",
-    href: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+    img: {logoInco},
+    title: "INCO Group",
+    href: "https://inco-group.co/en/activities",
   },
   {
-    img: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
-    title: "Hats",
-    href: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+    img: {logoVBKI},
+    title: " Verein Berliner Kaufleute und Industrieller (VBKI)",
+    href: "https://www.vbki.de/",
   },
 ];
 
 export default function Partners() {
   return (
-    <Container maxWidth="xl" style={{ padding: "6rem" }}>
-      <Typography
+    <Container maxWidth="xl" style={{ padding: "2rem" }}>
+      {/* <Typography
         variant="h3"
         align="center"
         style={{ fontWeight: "bold"}}
       >
         Our Partners
-      </Typography>
+      </Typography> */}
       <ImageList cols={5} style={{ gap: "2rem", padding: "2rem 3rem" }}>
         {partnerLists.map((partner) => (
           <Link href={`${partner.href}`}>

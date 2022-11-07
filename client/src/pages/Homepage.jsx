@@ -9,17 +9,15 @@ import Intro from "../components/Intro";
 import Overview from "../components/Overview";
 import Partners from "../components/Partners";
 import Testimonials1 from "../components/Testimonials1";
-import AlumniTestimonial from "../components/AlumniTestimonial";
 import Support from "../components/Support";
 import OurTeam from "../components/OurTeam";
-import Logo from "../components/Logo";
+import Process from "../components/Process";
 
 export default function Homepage() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Container maxWidth="xl" style={{ backgroundColor: "white" }}>
-        <Logo/>
         <Intro />
         <Partners />
         <GraduationPanel />
@@ -27,7 +25,7 @@ export default function Homepage() {
         <Testimonials1 />
         <Gallery />
         <Overview />
-        <AlumniTestimonial/>
+        <Process/>
         <Support/>
         <OurTeam/>
       </Container>

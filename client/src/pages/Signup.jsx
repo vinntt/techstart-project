@@ -4,7 +4,6 @@ import Grid from '@mui/material/Grid';
 import * as React from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// import service from '../../api/service';
 
 function SignUp() {
     const [name, setName] = useState('');
@@ -35,20 +34,6 @@ function SignUp() {
 
         const requestBody = { email, password, name, role }
 
-        // service.post('/auth/signup', requestBody)
-        //     .then(response => {
-        //         // redirect to login
-        //         navigate('/login')
-        //     })
-        //     .catch(err => {
-        //         const errorDescription = err.response.data.message
-        //         setErrorMessage(errorDescription)
-        //     });
-
-        // setName('');
-        // setEmail('');
-        // setPassword('');
-        // setRole('');
     };
 
     const handleEmail = e => setEmail(e.target.value)
@@ -58,7 +43,7 @@ function SignUp() {
     const [errorMessage, setErrorMessage] = useState(undefined);
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" style={{ padding: "1rem 0 4rem 0" }}>
             <CssBaseline />
             <Box
                 sx={{
@@ -132,12 +117,6 @@ function SignUp() {
                                 ))}
                             </TextField>
                         </Grid>
-                        {/* <Grid item xs={12}>
-                            <FormControlLabel
-                                control={<Checkbox value="allowExtraEmails" color="primary" required />}
-                                label="I want be a part of the Couchventure community"
-                            />
-                        </Grid> */}
                     </Grid>
                     <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, py: 2 }}>
                         Sign Up

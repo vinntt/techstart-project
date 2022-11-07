@@ -18,7 +18,7 @@ import AddIcon from "@mui/icons-material/Add";
 
 function Overview() {
   return (
-    <Container maxWidth="xl" style={{ padding: "6rem" }}>
+    <Container maxWidth="xl" style={{ padding: "4rem 10rem" }}>
       <Typography
         variant="h3"
         align="center"
@@ -28,7 +28,7 @@ function Overview() {
       </Typography>
       <Grid container sx={{ maxWidth: "80%", gap: "2rem" }}>
         {/* Card 1 */}
-        <Card sx={{ maxWidth: 345, boxShadow: 4, borderRadius: "12px" }}>
+        <Card sx={{ maxWidth: 345, boxShadow: 4, borderRadius: "12px", backgroundColor: "#F8F9FF"  }}>
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: purple[500] }}>
@@ -41,9 +41,10 @@ function Overview() {
 
           <CardContent style={{}}>
             <Typography variant="body2" align="left" color="text.secondary">
-              This impressive paella is a perfect party dish and a fun meal to
-              cook together with your guests. Add 1 cup of frozen peas along
-              with the mussels, if you like.
+            Eget augue in et ac sagittis senectus sit maecenas tristique.
+              Pellentesque cras proin quis leo maecenas sed cursus. In eu diam
+              metus odio nisl at. At tortor sollicitudin at sem. Leo ornare
+              lectus hac.
             </Typography>
             <Typography variant="caption" align="center">
               Jackson Deville - Manager Company
@@ -51,7 +52,7 @@ function Overview() {
           </CardContent>
         </Card>
         {/* Card 2 */}
-        <Card sx={{ maxWidth: 345, boxShadow: 4, borderRadius: "12px" }}>
+        <Card sx={{ maxWidth: 345, boxShadow: 4, borderRadius: "12px", backgroundColor: "#F8F9FF"  }}>
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: purple[500] }} aria-label="recipe">
@@ -64,9 +65,10 @@ function Overview() {
 
           <CardContent style={{}}>
             <Typography variant="body2" align="left" color="text.secondary">
-              This impressive paella is a perfect party dish and a fun meal to
-              cook together with your guests. Add 1 cup of frozen peas along
-              with the mussels, if you like.
+            Eget augue in et ac sagittis senectus sit maecenas tristique.
+              Pellentesque cras proin quis leo maecenas sed cursus. In eu diam
+              metus odio nisl at. At tortor sollicitudin at sem. Leo ornare
+              lectus hac.
             </Typography>
             <Typography variant="caption" align="center">
               Jackson Deville - Manager Company
@@ -74,7 +76,7 @@ function Overview() {
           </CardContent>
         </Card>
         {/* Card 3 */}
-        <Card sx={{ maxWidth: 345, boxShadow: 4, borderRadius: "12px" }}>
+        <Card sx={{ maxWidth: 345, boxShadow: 4, borderRadius: "12px", backgroundColor: "#F8F9FF"  }}>
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: purple[500] }} aria-label="recipe">
@@ -87,9 +89,10 @@ function Overview() {
 
           <CardContent style={{}}>
             <Typography variant="body2" align="left" color="text.secondary">
-              This impressive paella is a perfect party dish and a fun meal to
-              cook together with your guests. Add 1 cup of frozen peas along
-              with the mussels, if you like.
+            Eget augue in et ac sagittis senectus sit maecenas tristique.
+              Pellentesque cras proin quis leo maecenas sed cursus. In eu diam
+              metus odio nisl at. At tortor sollicitudin at sem. Leo ornare
+              lectus hac.
             </Typography>
             <Typography variant="caption" align="center">
               Jackson Deville - Manager Company
@@ -97,7 +100,7 @@ function Overview() {
           </CardContent>
         </Card>
         {/* Card 4 */}
-        <Card sx={{ maxWidth: 345, boxShadow: 4, borderRadius: "12px" }}>
+        <Card sx={{ maxWidth: 345, boxShadow: 4, borderRadius: "12px", backgroundColor: "#F8F9FF"  }}>
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: purple[500] }} aria-label="recipe">
@@ -110,9 +113,34 @@ function Overview() {
 
           <CardContent style={{}}>
             <Typography variant="body2" align="left" color="text.secondary">
-              This impressive paella is a perfect party dish and a fun meal to
-              cook together with your guests. Add 1 cup of frozen peas along
-              with the mussels, if you like.
+            Eget augue in et ac sagittis senectus sit maecenas tristique.
+              Pellentesque cras proin quis leo maecenas sed cursus. In eu diam
+              metus odio nisl at. At tortor sollicitudin at sem. Leo ornare
+              lectus hac.
+            </Typography>
+            <Typography variant="caption" align="center">
+              Jackson Deville - Manager Company
+            </Typography>
+          </CardContent>
+        </Card>
+        {/* Card 5 */}
+        <Card sx={{ maxWidth: 345, boxShadow: 4, borderRadius: "12px", backgroundColor: "#F8F9FF"  }}>
+          <CardHeader
+            avatar={
+              <Avatar sx={{ bgcolor: purple[500] }} aria-label="recipe">
+                <AddIcon />
+              </Avatar>
+            }
+            title="Duration"
+            subheader="How long /when does it start"
+          />
+
+          <CardContent style={{}}>
+            <Typography variant="body2" align="left" color="text.secondary">
+            Eget augue in et ac sagittis senectus sit maecenas tristique.
+              Pellentesque cras proin quis leo maecenas sed cursus. In eu diam
+              metus odio nisl at. At tortor sollicitudin at sem. Leo ornare
+              lectus hac.
             </Typography>
             <Typography variant="caption" align="center">
               Jackson Deville - Manager Company

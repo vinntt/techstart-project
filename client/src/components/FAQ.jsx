@@ -53,7 +53,7 @@ export default function FAQ() {
   return (
     <Container
       maxWidth="xl"
-      style={{ backgroundColor: "inherit", paddingTop: "6rem" }}
+      style={{ backgroundColor: "#F8F9FF", padding: "5rem 5rem" }}
     >
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid container xs={7} style={{ padding: "0 4rem" }}>
@@ -142,9 +142,9 @@ export default function FAQ() {
               variant="button"
               sx={{ mt: 3, mb: 2, py: 1 }}
               style={{
-                backgroundColor: "#F3C522",
+                backgroundColor: "#F1005F",
                 border: "2px solid black",
-                color: "#1D1D1F",
+                color: "#FFFFFF",
                 fontWeight: "bold",
                 boxShadow: "0px 2px 0px #000000",
                 borderRadius: "12px",
