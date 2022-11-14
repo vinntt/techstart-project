@@ -6,7 +6,7 @@ import { Container } from "@mui/system";
 
 function Intro() {
   return (
-      <Container maxWidth="xl" style={{ backgroundColor: "inherit", padding: "5rem 5rem"}}>
+      <Container id="intro" maxWidth="xl" style={{ backgroundColor: "inherit", padding: "5rem 5rem"}}>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid container xs={6} style={{ padding: "0 3rem"}}>
             <Typography
@@ -26,7 +26,7 @@ function Intro() {
             </Grid>
             <Grid item >
                 <Button
-                href="/"
+                href="/application"
                   type="submit"
                   fullWidth
                   variant="button"
@@ -45,6 +45,8 @@ function Intro() {
                 </Button>
             </Grid>
           </Grid>
+          
+          
           <Grid container xs={6} position="relative" style={{padding:"0 4rem"}}>
           <iframe width="100%" height="100%" src="https://www.youtube.com/embed/AZMxLOQe-6A" title="Onboarding Week Techstart program 2022" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </Grid>
