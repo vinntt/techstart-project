@@ -2,18 +2,18 @@ import React from "react";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import { Box, Container } from "@mui/system";
-import { Avatar, Card, CardContent } from "@mui/material";
-import PersonIcon from "@mui/icons-material/Person";
+import { Container } from "@mui/system";
+import { Avatar } from "@mui/material";
 
 export default function OurTeam() {
   return (
     <Container
+      id="ourteam"
       maxWidth="xl"
       style={{ backgroundColor: "#F8F9FF", padding: "6rem 6rem" }}
     >
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        <Grid container xs={6} style={{ padding: "0 4rem" }}>
+        <Grid container xs={7} style={{ padding: "0 4rem" }}>
           <Typography
             variant="h2"
             align="left"
@@ -31,7 +31,7 @@ export default function OurTeam() {
           </Grid>
           <Grid item>
             <Button
-              href="/"
+              href="/application"
               type="submit"
               fullWidth
               variant="button"
@@ -52,29 +52,54 @@ export default function OurTeam() {
         </Grid>
         <Grid
           container
-          xs={6}
-          position="relative"
+          xs={5}
           style={{ padding: "0 4rem", flexDirection: "column", gap: "3rem" }}
         >
-          <Grid item>
-              <Avatar>
-                <PersonIcon sx={{ fontSize: 40 }}/>
-              </Avatar>
-              <Typography variant="body1" align="left" style={{ fontWeight: "bold"}}>
-                Antonia Brouwers
-                <br />
-                Techstart Program Coordinator | CODE
-              </Typography>
+          <Grid>
+            <Avatar
+              sx={{
+                bgcolor: "black",
+                color: "white",
+                border: "3px solid #FFFFFF",
+                width: 100,
+                height: 100,
+                boxShadow: "0px 2px 0px #030211",
+              }}
+              src="https://ca.slack-edge.com/T54B2S3T9-U02FF6NM83Z-b35bcd0f2663-512"
+            />
+            <Typography
+              variant="h6"
+              align="left"
+              style={{ fontWeight: "bold" }}
+            >
+              Antonia Brouwers
+            </Typography>
+            <Typography variant="body1" align="left">
+              Techstart Program Coordinator | CODE
+            </Typography>
           </Grid>
           <Grid>
-              <Avatar>
-                <PersonIcon sx={{ fontSize: 40 }}/>
-              </Avatar>
-              <Typography variant="body1" align="left" style={{ fontWeight: "bold"}}>
-                Lauran Gaillard
-                <br />
-                Techstart Program Coordinator | CODE
-              </Typography>
+            <Avatar
+              sx={{
+                bgcolor: "black",
+                color: "white",
+                border: "3px solid #FFFFFF",
+                width: 100,
+                height: 100,
+                boxShadow: "0px 2px 0px #030211",
+              }}
+              src="https://ca.slack-edge.com/T54B2S3T9-U01AVSVCZNY-e6cc90c1d2ee-512"
+            />
+            <Typography
+              variant="h6"
+              align="left"
+              style={{ fontWeight: "bold" }}
+            >
+              Lauren Gaillard
+            </Typography>
+            <Typography variant="body1" align="left">
+              Techstart Program Coordinator | CODE
+            </Typography>
           </Grid>
         </Grid>
       </Grid>
