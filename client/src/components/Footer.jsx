@@ -1,24 +1,17 @@
 import React from "react";
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import MenuIcon from "@mui/icons-material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Container, Button } from "@mui/material";
-import logoTechstart from "./../img/logoTechstart.png";
+import { Container } from "@mui/material";
 
 export default function Footer() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ backgroundColor: "black" }}>
-        <Container maxWidth="xl" style={{ padding: "1.5rem 0" }}>
+    <Box sx={{ flexGrow: 1, width: "100%", position: "fixed", bottom: 0, zIndex: "1000" }}>
+        <Container maxWidth="100%" style={{ padding: "1.5rem 0", backgroundColor: "black", display: "inline-flex" }}>
           <Toolbar>
-            <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ flexGrow: 1 }} />
             <Box
               sx={{ display: { xs: "none", md: "flex" } }}
               style={{
@@ -27,7 +20,7 @@ export default function Footer() {
                 alignItems: "center",
               }}
             >
-              <Link to="/" style={{ textDecoration: "none", color: "#FFFFFF" }}>
+              <Link href="/#intro" style={{ textDecoration: "none", color: "white" }}>
                 <Typography
                   variant="button"
                   noWrap
@@ -37,7 +30,10 @@ export default function Footer() {
                   ABOUT
                 </Typography>
               </Link>
-              <Link to="/" style={{ textDecoration: "none", color: "#FFFFFF" }}>
+              <Link
+                href="/#testimonials"
+                style={{ textDecoration: "none", color: "white" }}
+              >
                 <Typography
                   variant="button"
                   noWrap
@@ -47,7 +43,7 @@ export default function Footer() {
                   TESTIMONIALS
                 </Typography>
               </Link>
-              <Link to="/" style={{ textDecoration: "none", color: "#FFFFFF" }}>
+              <Link href="/#overview" style={{ textDecoration: "none", color: "white" }}>
                 <Typography
                   variant="button"
                   noWrap
@@ -57,7 +53,7 @@ export default function Footer() {
                   PROGRAM
                 </Typography>
               </Link>
-              <Link to="/" style={{ textDecoration: "none", color: "#FFFFFF" }}>
+              <Link href="/#faq" style={{ textDecoration: "none", color: "white" }}>
                 <Typography
                   variant="button"
                   noWrap
@@ -67,7 +63,10 @@ export default function Footer() {
                   FAQ
                 </Typography>
               </Link>
-              <Link to="/" style={{ textDecoration: "none", color: "#FFFFFF" }}>
+              <Link
+                href="/#ourteam"
+                style={{ textDecoration: "none", color: "white" }}
+              >
                 <Typography
                   variant="button"
                   noWrap
@@ -77,18 +76,24 @@ export default function Footer() {
                   CONTACT US
                 </Typography>
               </Link>
+              {/* <Link to='/profile/me' style={{ textDecoration: "none" }}>
+                                <IconButton
+                                    size='small'
+                                    aria-controls={menuId}
+                                    aria-haspopup="true"
+                                    onClick={handleSettingsMenuOpen}
+                                    style={{ color: "white", padding: "0", margin: "0" }}
+                                    style={{ color: "white", padding: "10px 8px" }}
+                                >
+                                    <AccountCircle sx={{ fontSize: 24 }} />
+                                </IconButton>
+                            </Link> */}
+              {/* <Link to='#' style={{ textDecoration: "none" }}> */}
+              {/* <IconButton size='small' aria-controls={menuId} aria-haspopup='true' onClick={handleSettingsMenuOpen} style={{ color: "white", padding: "10px 8px" }}>
+                                    <SettingsIcon sx={{ fontSize: 24 }} />
+                                </IconButton> */}
+              {/* </Link> */}
             </Box>
-            <Link to="/" style={{ color: "black", textDecoration: "none" }}>
-              <Box
-                component="img"
-                sx={{
-                  // maxWidth: "100%",
-                  height: "auto",
-                }}
-                alt="Techstart logo"
-                src={logoTechstart}
-              />
-            </Link>
             {/* <Box sx={{ display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="small"
@@ -98,12 +103,11 @@ export default function Footer() {
                 onClick={handleMobileMenuOpen}
                 color="inherit"
               >
-                <MenuIcon style={{ color: "#FFFFFF" }} />
+                <MenuIcon style={{ color: "white" }} />
               </IconButton>
             </Box> */}
           </Toolbar>
         </Container>
-      </AppBar>
       {/* {renderMobileMenu} */}
     </Box>
   );
