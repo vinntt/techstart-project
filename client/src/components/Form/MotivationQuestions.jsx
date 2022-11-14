@@ -35,6 +35,17 @@ export default function MotivationQuestions() {
 
     const navigate = useNavigate();
 
+    const yesNo = [
+      {
+        value: "yes",
+        label: "Yes",
+      },
+      {
+        value: "no",
+        label: "No",
+      }
+    ]
+
     const studyTracks = [
         {
             value: 'UX/UI - Interaction Design',
@@ -98,7 +109,7 @@ export default function MotivationQuestions() {
           <LockOutlinedIcon sx={{ fontSize: 32 }} />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Application Form
+          Part 2
         </Typography>
         {/* First Screen */}
         <Box component="form" onSubmit='' sx={{ mt: 3 }}>
@@ -130,11 +141,23 @@ export default function MotivationQuestions() {
                 style={{ width: "100%" }}
               />
             </Grid>
-            <Grid item xs={12} sm={12}>
-              <FormControlLabel
-                control={<Checkbox/>}
-                label="Have you already been involved in the tech industry before?"
-              />
+            <Grid item xs={8} sm={8}>
+              <TextField
+                id="experience"
+                select
+                required
+                fullWidth
+                label="Please select"
+                value={yesNo}
+                onChange=""
+                helperText="Do you have experience in this industry "
+              >
+                {yesNo.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
             </Grid>
             <Grid item xs={12} sm={12}>
               <TextField
