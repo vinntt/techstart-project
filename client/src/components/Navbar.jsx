@@ -8,14 +8,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Container, Button } from "@mui/material";
-import LoginForm from "./LoginForm";
-import SettingsIcon from '@mui/icons-material/Settings';
-import logoTechstart from './../img/logoTechstart.png'
+import { Container, Button, Link } from "@mui/material";
+import logoTechstart from "./../img/logoTechstart.png";
 
 export default function Navbar() {
-
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
@@ -39,27 +35,31 @@ export default function Navbar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-    const menuId = "primary-search-account-menu";
-    const renderMenu = (
-        <Menu
-            anchorEl={anchorEl}
-            anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-            }}
-            id={menuId}
-            keepMounted
-            transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-            }}
-            open={isMenuOpen}
-            onClose={handleMenuClose}
-        >
-            <MenuItem onClick={handleMenuClose}>Account & Settings</MenuItem>
-            <MenuItem onClick=''>Log Out</MenuItem>
-        </Menu>
-    );
+  // const handleScrollIntoView = () => {
+  // ref.current?.scrollIntoView({behavior: "smooth"})
+  // }
+
+  const menuId = "primary-search-account-menu";
+  const renderMenu = (
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+      id={menuId}
+      keepMounted
+      transformOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+    >
+      <MenuItem onClick={handleMenuClose}>Account & Settings</MenuItem>
+      <MenuItem onClick="">Log Out</MenuItem>
+    </Menu>
+  );
 
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
@@ -115,15 +115,21 @@ export default function Navbar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ backgroundColor: "#F8F9FF" }}>
+    <Box
+      sx={{ flexGrow: 1 }}
+      style={{ position: "sticky", top: "0", zIndex: "1000" }}
+    >
+      <AppBar
+        position="static"
+        style={{ backgroundColor: "#F8F9FF", marginBottom: "1.5rem" }}
+      >
         <Container maxWidth="xl">
           <Toolbar>
-            <Link to="/" style={{ color: "black", textDecoration: "none" }}>
+            <Link href="/" style={{ color: "black", textDecoration: "none" }}>
               <Box
                 component="img"
                 sx={{
-                  // maxWidth: "100%",
+                  width: 220,
                   height: "auto",
                 }}
                 alt="Techstart logo"
@@ -139,7 +145,7 @@ export default function Navbar() {
                 alignItems: "center",
               }}
             >
-              <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+              <Link href="/#intro" style={{ textDecoration: "none", color: "black" }}>
                 <Typography
                   variant="button"
                   noWrap
@@ -149,7 +155,10 @@ export default function Navbar() {
                   ABOUT
                 </Typography>
               </Link>
-              <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+              <Link
+                href="/#testimonials"
+                style={{ textDecoration: "none", color: "black" }}
+              >
                 <Typography
                   variant="button"
                   noWrap
@@ -159,7 +168,7 @@ export default function Navbar() {
                   TESTIMONIALS
                 </Typography>
               </Link>
-              <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+              <Link href="/#overview" style={{ textDecoration: "none", color: "black" }}>
                 <Typography
                   variant="button"
                   noWrap
@@ -169,7 +178,7 @@ export default function Navbar() {
                   PROGRAM
                 </Typography>
               </Link>
-              <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+              <Link href="/#faq" style={{ textDecoration: "none", color: "black" }}>
                 <Typography
                   variant="button"
                   noWrap
@@ -179,7 +188,10 @@ export default function Navbar() {
                   FAQ
                 </Typography>
               </Link>
-              <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+              <Link
+                href="/#ourteam"
+                style={{ textDecoration: "none", color: "black" }}
+              >
                 <Typography
                   variant="button"
                   noWrap
@@ -190,7 +202,7 @@ export default function Navbar() {
                 </Typography>
               </Link>
               <Button
-                href="/"
+                href="/application"
                 type="submit"
                 variant="button"
                 sx={{ mt: 3, mb: 2, py: 1 }}
@@ -209,7 +221,7 @@ export default function Navbar() {
                 Apply now
               </Button>
               <Button
-                href="/"
+                href="/login"
                 type="submit"
                 variant="button"
                 sx={{ mt: 3, mb: 2, py: 1 }}
@@ -225,7 +237,7 @@ export default function Navbar() {
                   minWidth: "auto",
                 }}
               >
-                Log In
+                Login
               </Button>
               {/* <Link to='/profile/me' style={{ textDecoration: "none" }}>
                                 <IconButton
