@@ -6,14 +6,15 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Homepage from "./pages/Homepage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import SignUp from "./pages/Signup";
 import Login from "./pages/Login";
 import ApplicationForm from "./pages/ApplicationForm";
+import Signup from "./pages/Signup";
+import ContactUs from "./pages/ContactUs";
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#006494",
+      main: "#00070b",
     },
     secondary: {
       main: "#4f606e",
@@ -49,7 +50,7 @@ function App() {
           <Route
             path="/signup"
             element={
-              <SignUp/>
+              <Signup/>
             }
             />
           <Route
@@ -59,9 +60,15 @@ function App() {
             }
             />
             <Route
-            path="/application-form"
+            path="/application"
             element={
               <ApplicationForm/>
+            }
+            />
+            <Route
+            path="/contact"
+            element={
+              <ContactUs/>
             }
             />
             </Routes>
