@@ -22,10 +22,15 @@ import Container from "@mui/material/Container";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState, useReducer } from "react";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-
-
+import useLocalStorage from "../../utils/localstorage";
 
 export default function Commitments() {
+    const [applicationStep] = useLocalStorage("application_step", 0);
+
+    useEffect(() => {
+      console.log(applicationStep)
+    }, [applicationStep])
+
     const [pronoun, setPronoun] = useState('');
     const [name, setName] = useState('');
     const [dateOfBirth, setDateOfBirth] = useState('');
@@ -116,7 +121,7 @@ export default function Commitments() {
           <LockOutlinedIcon sx={{ fontSize: 32 }} />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Application Form
+          Part 3
         </Typography>
         {/* First Screen */}
         <Box component="form" onSubmit='' sx={{ mt: 3 }}>
@@ -138,6 +143,16 @@ export default function Commitments() {
                 multiline
                 rows={4}
                 // defaultValue="Please let us know more about your motivation"
+                style={{ width: "100%" }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={12}>
+              <TextField
+                id="outlined-multiline-static"
+                label="What would your friends say best describes your personality?"
+                multiline
+                rows={4}
+                // defaultValue="If we asked your friends, what would they say best describes your personality?"
                 style={{ width: "100%" }}
               />
             </Grid>
