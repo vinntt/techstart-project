@@ -3,11 +3,8 @@ import {
   Avatar,
   Box,
   Button,
-  Checkbox,
   Container,
   CssBaseline,
-  FormControlLabel,
-  MenuItem,
   TextField,
   Typography,
 } from "@mui/material";
@@ -19,6 +16,9 @@ import { Link, useNavigate } from "react-router-dom";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(undefined);
+
 
   const navigate = useNavigate();
 
@@ -26,17 +26,17 @@ export default function Login() {
     event.preventDefault();
 
     const requestBody = { email, password };
+    setLoading(true);
   };
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
-  const [errorMessage, setErrorMessage] = useState(undefined);
 
   return (
     <Container
       component="main"
       maxWidth="xs"
-      style={{ padding: "1rem 0 10rem 0" }}
+      style={{ padding: "1rem 0 5rem 0" }}
     >
       <CssBaseline />
       <Box
@@ -86,9 +86,15 @@ export default function Login() {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2, py: 2 }}
-          >
-            Login
-          </Button>
+            style={{
+                  backgroundColor: "#F1005F",
+                  border: "2px solid black",
+                  color: "#FFFFFF",
+                  fontWeight: "bold",
+                  boxShadow: "0px 2px 0px #000000",
+                  borderRadius: "12px",
+                }}
+          > Login</Button>
 
           {errorMessage && <h5>{errorMessage}</h5>}
 
