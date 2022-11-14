@@ -2,36 +2,31 @@ import React from "react";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { Container } from "@mui/system";
-import { Link, Typography } from "@mui/material";
-import logoAndreasGerlStiftung from './../img/logoAndreasGerlStiftung.png'
-import logoCode from './../img/logoCode.png'
-import logoEzA from './../img/logoEzA.png'
-import logoInco from './../img/logoInco.png'
-import logoVBKI from './../img/logoVBKI.png'
+import { Link } from "@mui/material";
 
 const partnerLists = [
   {
-    img: {logoCode},
+    img: "https://res.cloudinary.com/dymdurqej/image/upload/c_scale,w_256/v1668033594/techstart/logo-code_x3gict.png",
     title: "CODE University of Applied Sciences",
     href: "https://code.berlin/en/",
   },
   {
-    img: {logoAndreasGerlStiftung},
+    img: "https://res.cloudinary.com/dymdurqej/image/upload/c_fit,w_256,h_141/v1668033833/techstart/logo-gerl-stiftung_peevdd.png",
     title: "Andreas Gerl Stiftung",
     href: "https://www.gerl-stiftung.de/",
   },
   {
-    img: {logoEzA},
+    img: "https://res.cloudinary.com/dymdurqej/image/upload/c_scale,w_256/v1668033936/techstart/Logo_780x366_w808rp.png",
     title: "Einstieg zum Aufstieg",
     href: "https://einstiegzumaufstieg.de/",
   },
   {
-    img: {logoInco},
+    img: "https://res.cloudinary.com/dymdurqej/image/upload/c_scale,w_256/v1668034130/techstart/logo-inco-group_mmcc0z.png",
     title: "INCO Group",
     href: "https://inco-group.co/en/activities",
   },
   {
-    img: {logoVBKI},
+    img: "https://res.cloudinary.com/dymdurqej/image/upload/c_scale,w_256/v1668034258/techstart/logo-vbki_pw2mar.png",
     title: " Verein Berliner Kaufleute und Industrieller (VBKI)",
     href: "https://www.vbki.de/",
   },
@@ -40,25 +35,17 @@ const partnerLists = [
 export default function Partners() {
   return (
     <Container maxWidth="xl" style={{ padding: "2rem" }}>
-      {/* <Typography
-        variant="h3"
-        align="center"
-        style={{ fontWeight: "bold"}}
-      >
-        Our Partners
-      </Typography> */}
-      <ImageList cols={5} style={{ gap: "2rem", padding: "2rem 3rem" }}>
+      <ImageList cols={5} style={{ gap: "2rem", padding: "2rem 3rem", alignItems: "center" }}>
         {partnerLists.map((partner) => (
-          <Link href={`${partner.href}`}>
-            <ImageListItem key={partner.img}>
+          <ImageListItem key={partner.img}>
+            <Link href={`${partner.href}`}>
               <img
-                src={`${partner.img}?w=103&h=56&fit=crop&auto=format`}
-                srcSet={`${partner.img}?w=103&h=56&fit=crop&auto=format&dpr=2 2x`}
+                src={`${partner.img}`}
                 alt={partner.title}
                 loading="lazy"
               />
-            </ImageListItem>
-          </Link>
+            </Link>
+          </ImageListItem>
         ))}
       </ImageList>
     </Container>
