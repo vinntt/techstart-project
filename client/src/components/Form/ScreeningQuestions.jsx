@@ -23,8 +23,11 @@ import Container from "@mui/material/Container";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState, useReducer } from "react";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import useLocalStorage from "../../utils/localstorage";
 
-export default function ScreeningQuestions() {
+export default function ScreeningQuestions({nextStep}) {
+  const [applicationStep, setApplicationStep] = useLocalStorage("application_step", 0);
+
   const [pronoun, setPronoun] = useState("");
   const [name, setName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
@@ -33,6 +36,17 @@ export default function ScreeningQuestions() {
   const [secondNationality, setSecondNationality] = useState("");
 
   const navigate = useNavigate();
+
+  const yesNo = [
+    {
+      value: "yes",
+      label: "Yes",
+    },
+    {
+      value: "no",
+      label: "No",
+    }
+  ]
 
   const pronouns = [
     {
@@ -51,6 +65,10 @@ export default function ScreeningQuestions() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    console.log("step 1 finished");
+    // setApplicationStep(2);
+    nextStep(2);
 
     // const requestBody = { email, password, name, role };
 
@@ -92,7 +110,7 @@ export default function ScreeningQuestions() {
           <LockOutlinedIcon sx={{ fontSize: 32 }} />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Application Form
+          Part 1
         </Typography>
         {/* First Screen */}
         <Box component="form" onSubmit="" sx={{ mt: 3 }}>
@@ -103,10 +121,10 @@ export default function ScreeningQuestions() {
                 select
                 required
                 fullWidth
-                label="Preferred pronouns"
+                label="Please select"
                 value={pronoun}
                 onChange={handlePronoun}
-                helperText="How would you like us to address you? "
+                helperText="Preferred pronouns"
               >
                 {pronouns.map((option) => (
                   <MenuItem key={option.value} value={option.value}>
@@ -177,27 +195,59 @@ export default function ScreeningQuestions() {
                 onChange={handleSecondNationality}
               />
             </Grid>
-            <Grid item xs={12} sm={12}>
-              <FormControlLabel
-                control={<Checkbox  />}
-                label="You have work permit in Germany"
-              />
-            </Grid>
-            <Grid item xs={12} sm={12}>
-              <FormControlLabel
-                control={<Checkbox />}
-                label="You are located in Berlin"
-              />
-            </Grid>
-            <Grid item xs={12} sm={12}>
+            <Grid item xs={6} sm={6}>
               <TextField
-                id="outlined-multiline-static"
-                label="What would your friends say best describes your personality?"
-                multiline
-                rows={4}
-                // defaultValue="If we asked your friends, what would they say best describes your personality?"
-                style={{ width: "100%" }}
-              />
+                id="permit"
+                select
+                required
+                fullWidth
+                label="Please select"
+                value={yesNo}
+                onChange=""
+                helperText="Do you have work permit in Germany? "
+              >
+                {yesNo.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </Grid>
+            <Grid item xs={6} sm={6}>
+              <TextField
+                id="located"
+                select
+                required
+                fullWidth
+                label="Please select"
+                value={yesNo}
+                onChange=""
+                helperText="Are you located in Berlin? "
+              >
+                {yesNo.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </Grid>
+            <Grid item xs={6} sm={6}>
+              <TextField
+                id="located"
+                select
+                required
+                fullWidth
+                label="Please select"
+                value={yesNo}
+                onChange=""
+                helperText="Are you willing to relocate to Berlin? "
+              >
+                {yesNo.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
             </Grid>
           </Grid>
           <Button
@@ -205,6 +255,7 @@ export default function ScreeningQuestions() {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2, py: 2 }}
+            onClick={handleSubmit}
           >
             Next
           </Button>
