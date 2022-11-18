@@ -10,14 +10,18 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import * as React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import service from "../api/service";
+import { AuthContext } from "../context/auth";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(undefined);
+  const { isLoggedIn, storeToken, verifyStoredToken } = useContext(AuthContext);
+
 
 
   const navigate = useNavigate();
@@ -25,12 +29,35 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const requestBody = { email, password };
-    setLoading(true);
+        const requestBody = { email, password };
+
+        setLoading(true);
+
+        service
+            .post("/auth/login", requestBody)
+            .then((response) => {
+                const token = response.data.authToken;
+
+                storeToken(token);
+                // verifyStoredToken return a promise now we can chain a .then and wait for the response
+                verifyStoredToken().then(() => {
+                    navigate("/");
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+                const errorDescription = err.response.data.message;
+                setErrorMessage(errorDescription);
+            })
+            .finally(() => setLoading(false));
   };
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
+
+  if (!loading && isLoggedIn) {
+    navigate("/");
+}
 
   return (
     <Container

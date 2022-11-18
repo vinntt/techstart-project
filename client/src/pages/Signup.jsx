@@ -13,6 +13,7 @@ import Grid from "@mui/material/Grid";
 import * as React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import service from '../api/service';
 
 export default function SignUp() {
   const [name, setName] = useState("");
@@ -41,8 +42,22 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const requestBody = { email, password, name, role };
+    const requestBody = { email, password, name, role }
 
+    service.post('/auth/signup', requestBody)
+        .then(response => {
+            // redirect to login
+            navigate('/login')
+        })
+        .catch(err => {
+            const errorDescription = err.response.data.message
+            setErrorMessage(errorDescription)
+        });
+
+    setName('');
+    setEmail('');
+    setPassword('');
+    setRole('');
 
   };
 
