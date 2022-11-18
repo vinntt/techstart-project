@@ -12,32 +12,31 @@ import GroupAddIcon from "@mui/icons-material/GroupAdd";
 const steps = [
   {
     label: "Written application",
-    description: `In the written application you must send us your CV and answer a short questionnaire about your
-    motivation, background, and expectations`,
+    description: `Answer a short questionnaire about your motivation, background, and professional goals.`,
     orientation: "right",
-    icon: <EditIcon />,
+    icon: <EditIcon fontSize="large"/>,
     link: true,
   },
   {
-    label: "Challenge",
+    label: "Documents and Challenge",
     description:
-      "We invite you to campus for an admission day where you will join in some practical team challenges. In the event that Corona does not allow us to meet in person, we will send you a virtual challenge that you must complete",
+      "In the second stage we ask you to submit your CV, a photo (for internal purposes only) and a proof of your work permit.You will also have to complete a written challenge (you will get one week to do so).",
     orientation: "left",
-    icon: <TipsAndUpdatesIcon />,
+    icon: <TipsAndUpdatesIcon fontSize="large"/>,
     link: true,
   },
   {
     label: "Interview",
     description: `In the online interview we want to get to know you better, but this is also your chance to get to know us.`,
     orientation: "right",
-    icon: <ThreePIcon />,
+    icon: <ThreePIcon fontSize="large"/>,
     link: true,
   },
   {
     label: "Confirmation",
-    description: `After admission day, you will receive your confirmation within two weeks.`,
+    description: `At the end of May/beginning of June we will let you know whether you made it into the program.`,
     orientation: "left",
-    icon: <GroupAddIcon />,
+    icon: <GroupAddIcon fontSize="large"/>,
   },
 ];
 
@@ -49,8 +48,8 @@ function stepAvatar({ icon, link }) {
           bgcolor: "black",
           color: "white",
           border: "3px solid #FFFFFF",
-          width: 70,
-          height: 70,
+          width: 80,
+          height: 80,
           boxShadow: "0px 2px 0px #030211",
           zIndex: "1000"
         }}
@@ -92,7 +91,7 @@ export default function Process() {
       style={{ padding: "2rem", backgroundColor: "#F8F9FF" }}
     >
       <Typography
-        variant="h3"
+        variant="h2"
         align="center"
         style={{ fontWeight: "bold", padding: "4rem 0" }}
       >
@@ -102,11 +101,11 @@ export default function Process() {
      {steps.map((step) => (
         <Grid container xs="6" style={stepStyle(step.orientation)}>
           {step.orientation === "right" && stepAvatar(step)}
-          <Grid item xs={5} md={5}>
-            <Typography variant="h6" style={{ fontWeight: "bold" }}>
+          <Grid item xs={5} md={5} sx={{padding: "1rem"}}>
+            <Typography variant="h6" style={{ fontWeight: "bold", padding:"1rem" }}>
               {step.label}
             </Typography>
-            <Typography variant="body1">{step.description}</Typography>
+            <Typography variant="body1" lineHeight={1.8}>{step.description}</Typography>
           </Grid>
           {step.orientation !== "right" && stepAvatar(step)}
         </Grid>
