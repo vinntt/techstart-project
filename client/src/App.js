@@ -11,6 +11,7 @@ import ApplicationForm from "./pages/ApplicationForm";
 import Signup from "./pages/Signup";
 import ContactUs from "./pages/ContactUs";
 
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -31,6 +32,12 @@ const theme = createTheme({
     success: {
       main: "#4f606e",
     },
+  },
+  typography: {
+    fontFamily: [
+      'Rubik',
+      'Kanit',
+    ].join(','),
   },
 });
 
