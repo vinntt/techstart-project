@@ -2,7 +2,7 @@ import React from "react";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { Container } from "@mui/system";
-import { Link } from "@mui/material";
+import { Link, Typography } from "@mui/material";
 
 const partnerLists = [
   {
@@ -34,7 +34,10 @@ const partnerLists = [
 
 export default function Partners() {
   return (
-    <Container maxWidth="xl" style={{ padding: "2rem" }}>
+    <Container maxWidth="xl" style={{ padding: "5rem 4rem" }}>
+      <Typography variant="h3" align="center" style={{ fontWeight: "bold" }}>
+      OUR FOUNDERS AND CO-FOUNDERS
+      </Typography>
       <ImageList cols={5} style={{ gap: "2rem", padding: "2rem 3rem", alignItems: "center" }}>
         {partnerLists.map((partner) => (
           <ImageListItem key={partner.img}>
