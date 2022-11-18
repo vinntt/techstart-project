@@ -12,7 +12,7 @@ function Support() {
   return (
     <Container maxWidth="xl" style={{ padding: "6rem" }}>
       <Typography
-        variant="h3"
+        variant="h2"
         align="center"
         style={{ fontWeight: "bold", padding: "3rem 0" }}
       >
@@ -59,7 +59,7 @@ function Support() {
                     boxShadow: "0px 2px 0px #030211",
                   }}
                 >
-                  <PaidIcon />
+                  <PaidIcon fontSize="large"/>
                 </Avatar>
               }
               titleTypographyProps={{ variant: "h6", fontWeight: "900" }}
@@ -117,7 +117,7 @@ function Support() {
                     boxShadow: "0px 2px 0px #030211",
                   }}
                 >
-                  <VoiceChatIcon />
+                  <VoiceChatIcon fontSize="large"/>
                 </Avatar>
               }
               titleTypographyProps={{ variant: "h6", fontWeight: "900" }}
@@ -175,7 +175,7 @@ function Support() {
                     boxShadow: "0px 2px 0px #030211",
                   }}
                 >
-                  <BusinessCenterIcon />
+                  <BusinessCenterIcon fontSize="large"/>
                 </Avatar>
               }
               titleTypographyProps={{ variant: "h6", fontWeight: "900" }}
