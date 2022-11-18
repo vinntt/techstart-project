@@ -64,15 +64,11 @@ export default function FAQ() {
             align="left"
             style={{ fontWeight: "bold", paddingBottom: "2rem" }}
           >
-            Is this the right program for you?
+            Are we a good fit for you?
           </Typography>
           <Grid item>
-            <Typography variant="" align="left">
-              This program is for people with forced migration background who
-              want to step into Germany’s booming tech industry in Berlin. For
-              the duration of the course you’ll learn in person in Berlin and
-              spend a minimum of 25 hours a week for learning, classes and
-              events.
+            <Typography variant="body1" align="left" lineHeight={2} fontSize={18}>
+            Techstart is integrated into the regular schedule of CODE University of Applied Sciences. Most of your classes will take place in person on campus at Berlin Kreuzberg’s start-up hub, “Factory”.
             </Typography>
           </Grid>
           <Grid item style={{ padding: "3rem 2rem 1rem 0" }}>
@@ -84,15 +80,11 @@ export default function FAQ() {
                 aria-controls="panel1d-content"
                 id="panel1d-header"
               >
-                <Typography variant="h6">What do I need to get started?</Typography>
+                <Typography variant="h6">Do I have to be in Berlin or is there a remote option? </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography>
-                  At Techstart we want to understand why you are motivated to
-                  join our program. We are building a vibrant and
-                  interdisciplinary team, so don’t hesitate to apply independent
-                  of your study background and previous knowledge. There is no
-                  such thing as the right answer to our questions.
+                <Typography variant="body1" align="justify" lineHeight={1.5}>
+                There is no remote option. In order to participate you have to be in Berlin for the duration of the program.
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -104,15 +96,11 @@ export default function FAQ() {
                 aria-controls="panel2d-content"
                 id="panel2d-header"
               >
-                <Typography variant="h6">Which documents do I need?</Typography>
+                <Typography variant="h6" align="left" >Who can apply?</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
+                <Typography variant="body1" align="justify"  lineHeight={1.5}>
+                Techstart aims to accelerate migrants + forced migrants into the Berlin tech scene. Therefore, you should identify with this demographic.
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -124,15 +112,11 @@ export default function FAQ() {
                 aria-controls="panel3d-content"
                 id="panel3d-header"
               >
-                <Typography variant="h6">How do I apply?</Typography>
+                <Typography variant="h6" align="left" >Is Techstart a full-time or part-time program?</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
+                <Typography variant="body1" align="justify"  lineHeight={1.5}>
+                Techstart is designed as a part-time program. We ask you to invest a minimum of 25h per week. If you have more time to spare, you can add more classes to your schedule.
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -144,15 +128,75 @@ export default function FAQ() {
                 aria-controls="panel34-content"
                 id="panel34-header"
               >
-                <Typography variant="h6">Do I need to have a degree?</Typography>
+                <Typography variant="h6" align="left" >Do I need to speak German?</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
+                <Typography variant="body1" align="justify"  lineHeight={1.5}>
+                No. But you should be able to understand and communicate in English without problems.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion
+              expanded={expanded === "panel5"}
+              onChange={handleChange("panel5")}
+            >
+              <AccordionSummary
+                aria-controls="panel34-content"
+                id="panel34-header"
+              >
+                <Typography variant="h6" align="left" >Do I need to have a previous degree?</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography variant="body1" align="justify" lineHeight={1.5} >
+                No. We only ask for prior skills in your track of choice. Whether acquired through work experience,  self study, university, bootcamp, etc doesn’t matter.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion
+              expanded={expanded === "panel6"}
+              onChange={handleChange("panel6")}
+            >
+              <AccordionSummary
+                aria-controls="panel34-content"
+                id="panel34-header"
+              >
+                <Typography variant="h6" align="left" >Which documents do I need?</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography variant="body1" align="justify"  lineHeight={1.5}>
+                Ideally, you will start an internship or job by the end of our program. In order to do that, you have to have a valid work permit. 
+                 </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion
+              expanded={expanded === "panel7"}
+              onChange={handleChange("panel7")}
+            >
+              <AccordionSummary
+                aria-controls="panel34-content"
+                id="panel34-header"
+              >
+                <Typography variant="h6" align="left" >Yay! I meet all criteria mentioned above. How can I apply?</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography variant="body1" align="justify"  lineHeight={1.5}>
+                Applications open in March 2023. You will then be able to apply online through this website.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion
+              expanded={expanded === "panel8"}
+              onChange={handleChange("panel8")}
+            >
+              <AccordionSummary
+                aria-controls="panel34-content"
+                id="panel34-header"
+              >
+                <Typography variant="h6" align="left" >I’m excited to apply! Anything else I should know?</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography variant="body1" align="justify"  lineHeight={1.5}>
+                You need a strong sense of discipline to learn on your own and motivation to reach out for help when needed. The CODE learning style is unique and different from what you may know from your past study experiences.Take a look at the website of CODE University of Applied Sciences to have an idea of the learning concept that Techstart follows.
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -178,7 +222,7 @@ export default function FAQ() {
             </Button>
           </Grid>
         </Grid>
-        <Grid xs={6} position="relative" style={{ padding: "3rem" }}>
+        <Grid xs={6} position="relative" style={{ padding: "8rem 3rem" }}>
           <Box
           href="/application"
             component="img"
