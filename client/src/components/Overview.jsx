@@ -13,7 +13,7 @@ function Overview() {
   return (
     <Container id="overview" maxWidth="xl" style={{ padding: "4rem" }}>
       <Typography
-        variant="h3"
+        variant="h2"
         align="center"
         style={{ fontWeight: "bold", padding: "4rem 0" }}
       >
@@ -21,7 +21,7 @@ function Overview() {
       </Typography>
       <Grid
         container
-        xs={6}
+        xs={8}
         spacing={2}
         sx={{
           rowGap: "1rem",
@@ -32,7 +32,7 @@ function Overview() {
         <Grid item xs={6} md={6}>
           <Card
             sx={{
-              height: 230,
+              height: 270,
               boxShadow: "0px 4px 0px #000000",
               border: "2px solid #0A1025",
               borderRadius: "16px",
@@ -51,7 +51,7 @@ function Overview() {
                     height: 70,
                   }}
                 >
-                  <CalendarMonthIcon fontSize="large"/>
+                  <CalendarMonthIcon fontSize="large" />
                 </Avatar>
               }
               titleTypographyProps={{ variant: "h6", fontWeight: "900" }}
@@ -61,12 +61,13 @@ function Overview() {
             />
 
             <CardContent style={{ padding: "0 16px" }}>
-              <Typography variant="body1" align="left">
-                <b>Program time</b>: July 2022 – June 2023
+              <Typography variant="body1" align="left" lineHeight={1.8}>
+                <b>Program time</b>: 1 June 2023 – 30 June 2024.
                 <br />
-                <b>Fall semester</b>: study at CODE
+                <b>Fall semester</b>: Attend classes at CODE.
                 <br />
-                <b>Spring semester</b>: 6 months integrated internship
+                <b>Spring semester</b>: Integrated internship or job + voluntary
+                classes at CODE.
               </Typography>
             </CardContent>
           </Card>
@@ -75,7 +76,7 @@ function Overview() {
         <Grid item xs={6} md={6}>
           <Card
             sx={{
-              height: 230,
+              height: 270,
               boxShadow: "0px 4px 0px #000000",
               border: "2px solid #0A1025",
               borderRadius: "16px",
@@ -94,7 +95,7 @@ function Overview() {
                     height: 70,
                   }}
                 >
-                  <TerminalIcon fontSize="large"/>
+                  <TerminalIcon fontSize="large" />
                 </Avatar>
               }
               titleTypographyProps={{ variant: "h6", fontWeight: "900" }}
@@ -103,9 +104,9 @@ function Overview() {
             />
 
             <CardContent style={{ padding: "0 16px" }}>
-              <Typography variant="body1" align="justify">
+              <Typography variant="body1" align="justify" lineHeight={1.8}>
                 Learn about <b>Software Engineering</b>,{" "}
-                <b>Interaction Design</b>, <b>AI & Data Science</b>, or{" "}
+                <b>Interaction Design</b>, <b>AI & Data Science</b>, or
                 <b>Product Management</b>, depending on your interest and prior
                 knowledge.
               </Typography>
@@ -125,7 +126,7 @@ function Overview() {
         >
           <Card
             sx={{
-              height: 230,
+              height: 270,
               boxShadow: "0px 4px 0px #000000",
               border: "2px solid #0A1025",
               borderRadius: "16px",
@@ -144,7 +145,7 @@ function Overview() {
                     height: 70,
                   }}
                 >
-                  <EmojiEventsIcon fontSize="large"/>
+                  <EmojiEventsIcon fontSize="large" />
                 </Avatar>
               }
               titleTypographyProps={{ variant: "h6", fontWeight: "900" }}
@@ -153,17 +154,16 @@ function Overview() {
             />
 
             <CardContent style={{ padding: "0 16px" }}>
-              <Typography variant="body1" align="left">
-                At the end of this program, you will be ready for an{" "}
-                <b>internship</b> or <b>entry-level position</b> in tech in
-                Berlin.
+              <Typography variant="body1" align="left" lineHeight={1.8}>
+                After the first semester this program, you should be ready to
+                take on a <b>paid</b> internship or job.
               </Typography>
             </CardContent>
           </Card>
           {/* Card 4 */}
           <Card
             sx={{
-              height: 250,
+              height: 270,
               boxShadow: "0px 4px 0px #000000",
               border: "2px solid #F8F9FF",
               borderRadius: "16px",
@@ -183,7 +183,7 @@ function Overview() {
                     height: 70,
                   }}
                 >
-                  <AlarmIcon fontSize="large"/>
+                  <AlarmIcon fontSize="large" />
                 </Avatar>
               }
               titleTypographyProps={{ variant: "h6", fontWeight: "900" }}
@@ -193,11 +193,11 @@ function Overview() {
             />
 
             <CardContent style={{ padding: "0 16px" }}>
-              <Typography variant="body1" align="left">
-                <b>Applications</b>: from 15 March/ 15 April 2022
+              <Typography variant="body1" align="left" lineHeight={1.8}>
+                <b>Applications are open</b>: 15 March - 15 April 2022
                 <br />
-                <b>Interviews</b>: May 2nd-13th We will notify those who get
-                into the program by the end of May.
+                <b>Interviews</b>: will take place in May 2023. We will notify
+                those who get into the program by the beginning of June 2023.
               </Typography>
             </CardContent>
           </Card>
@@ -206,7 +206,7 @@ function Overview() {
         <Grid item xs={6} md={6} style={{ paddingTop: 0 }}>
           <Card
             sx={{
-              height: 490,
+              height: 550,
               boxShadow: "0px 4px 0px #000000",
               border: "2px solid #0A1025",
               borderRadius: "16px",
@@ -225,7 +225,7 @@ function Overview() {
                     height: 70,
                   }}
                 >
-                  <AccountBalanceIcon fontSize="large"/>
+                  <AccountBalanceIcon fontSize="large" />
                 </Avatar>
               }
               titleTypographyProps={{ variant: "h6", fontWeight: "900" }}
@@ -234,17 +234,15 @@ function Overview() {
             />
 
             <CardContent style={{ padding: "0 16px" }}>
-              <Typography variant="body1" align="justify">
-                There are <b>no tuition fees</b> as the costs are covered by our
-                funders. However, if you finish the program successfully and
-                start working, we will ask you to make a voluntary income-based
-                donation to support our program.
-                <br />
-                <br />
-                Your donation will enable future participants to learn with us
-                and to find a job in tech, just like you did. Don’t worry: If
-                you don’t complete the program or have not found a job yet, we
-                won’t expect you to donate anything.
+              <Typography variant="body1" align="justify" lineHeight={1.8}>
+                There are <b>no tuition fees</b> for you as all costs are
+                covered by our founders. If you finish Techstart successfully
+                and start working, please consider to make an income-based
+                donation to support our program. This would enable future
+                participants to learn with us and to find a job in tech, just
+                like you did. As donations are by nature voluntary, your
+                participation in Techstart does not mean an obligation or
+                expectations on our side for you to donate.
               </Typography>
             </CardContent>
           </Card>
