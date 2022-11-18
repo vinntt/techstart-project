@@ -1,21 +1,14 @@
 import { Button, Grid, Paper, Typography } from "@mui/material";
 import Container from "@mui/material/Container";
 import { Box } from "@mui/system";
-import { useReducer } from "react";
+import ReviewApplication from "../components/Form/ReviewApplication";
 import Commitments from "../components/Form/Commitments";
 import MotivationQuestions from "../components/Form/MotivationQuestions";
 import ScreeningQuestions from "../components/Form/ScreeningQuestions";
 import useLocalStorage from "../utils/localstorage";
 
 export default function ApplicationForm() {
-  const [_, refresh] = useReducer(x => x + 1, 0);
   const [applicationStep, setApplicationStep] = useLocalStorage("application_step", 1);
-
-  const nextStep = (step) => {
-    console.log("called");
-    setApplicationStep(step);
-    refresh();
-  }
 
   return (
     <Box sx={{ flexGrow: 1 }} style={{paddingBottom: "15rem" }}>
@@ -89,9 +82,10 @@ export default function ApplicationForm() {
             </Grid>
           </Grid>
         </Paper>
-        {applicationStep === 1 && (<ScreeningQuestions nextStep={nextStep} />)}
-        {applicationStep === 2 && (<MotivationQuestions />)}
-        {applicationStep === 3 && (<Commitments />)}
+        {applicationStep === 1 && (<ScreeningQuestions changeStep={setApplicationStep} />)}
+        {applicationStep === 2 && (<MotivationQuestions changeStep={setApplicationStep} />)}
+        {applicationStep === 3 && (<Commitments changeStep={setApplicationStep} />)}
+        {applicationStep === 4 && (<ReviewApplication changeStep={setApplicationStep} />)}
       </Container>
     </Box>
   );
