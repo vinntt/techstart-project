@@ -33,7 +33,7 @@ const stringAvatar = (name) => {
 const testimonialsArr = [
   {
     content:
-      "The program works, you know? Antonia works. CODE works. You are really doing something here. It is very helpful, so I just wanted to say thank you.",
+      "This time last year I couldn’t even see a path back to a successful career. Now I know exactly how I will find it.",
     name: "Maria Lauvine",
     subtitle: "Techstart 2021",
   },
@@ -45,7 +45,7 @@ const testimonialsArr = [
   },
   {
     content:
-      "The program works, you know? Antonia works. CODE works. You are really doing something here. It is very helpful, so I just wanted to say thank you.",
+      "This time last year I couldn’t even see a path back to a successful career. Now I know exactly how I will find it.",
     name: "Maria Lauvine",
     subtitle: "Techstart 2021",
   },
@@ -55,25 +55,13 @@ const testimonialsArr = [
     name: "Danah Karrigan",
     subtitle: "Techstart 2021",
   },
-  // {
-  //   content:
-  //     "The program works, you know? Antonia works. CODE works. You are really doing something here. It is very helpful, so I just wanted to say thank you.",
-  //   name: "Maria Lauvine",
-  //   subtitle: "Techstart 2021",
-  // },
-  // {
-  //   content:
-  //     "I got out of the program what I wanted — to learn typescript and get an internship, and I did that in 6 months.For me, it was really successful.",
-  //   name: "Danah Karrigan",
-  //   subtitle: "Techstart 2021",
-  // },
 ];
 
 export default function Testimonials() {
   return (
     <Container id="testimonials" maxWidth="xl" style={{ padding: "6rem" }}>
       <Typography
-        variant="h3"
+        variant="h2"
         align="center"
         style={{ fontWeight: "bold", padding: "4rem 0" }}
       >
