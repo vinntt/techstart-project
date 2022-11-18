@@ -2,110 +2,101 @@ import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import {
-  Badge,
-  ImageList,
-  ImageListItem,
-  MenuItem,
-  styled,
-} from "@mui/material";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+import { Alert, MenuItem } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
-import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
-import BackspaceIcon from "@mui/icons-material/Backspace";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState, useReducer } from "react";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { useState } from "react";
+import AssignmentIcon from "@mui/icons-material/Assignment";
 import useLocalStorage from "../../utils/localstorage";
 
-export default function Commitments() {
-    const [applicationStep] = useLocalStorage("application_step", 0);
+export default function Commitments({changeStep}) {
+  const [applicationState, setApplicationState] = useLocalStorage("application_step_3", {});
 
-    useEffect(() => {
-      console.log(applicationStep)
-    }, [applicationStep])
+  const [learningStyleThoughts, setLearningStyleThoughts] = useState(applicationState.learningStyleThoughts || "");
+  const [lifestyle, setLifestyle] = useState(applicationState.lifestyle || "");
+  const [personality, setPersonality] = useState(applicationState.personality || "");
+  const [studyCommitment, setStudyCommitment] = useState(applicationState.studyCommitment || "");
+  const [eventCommitment, setEventCommitment] = useState(applicationState.eventCommitment || "");
+  const [error, setError] = useState(undefined);
 
-    const [pronoun, setPronoun] = useState('');
-    const [name, setName] = useState('');
-    const [dateOfBirth, setDateOfBirth] = useState('');
-    const [email, setEmail] = useState('');
-    const [nationality, setNationality] = useState('');
-    const [secondNationality, setSecondNationality] = useState('');
+  const selfLearningHours = [
+    {
+      value: "10-15",
+      label: "10-15",
+    },
+    {
+      value: "15-20",
+      label: "15-20",
+    },
+    {
+      value: "20-25",
+      label: "20-25",
+    },
+    {
+      value: "25-30",
+      label: "25-30",
+    },
+    {
+      value: "30+",
+      label: "30+",
+    },
+  ];
 
-    const navigate = useNavigate();
+  const attendEventsHours = [
+    {
+      value: "1-2",
+      label: "1-2",
+    },
+    {
+      value: "2-4",
+      label: "2-4",
+    },
+    {
+      value: "4+",
+      label: "4+",
+    },
+  ];
 
-    const selfLearningHours = [
-        {
-            value: '10-15',
-            label: '10-15',
-        },
-        {
-            value: '15-20',
-            label: '15-20',
-        },
-        {
-            value: '20-25',
-            label: '20-25',
-        },
-        {
-            value: '25-30',
-            label: '25-30',
-        },
-        {
-            value: '30+',
-            label: '30+',
-        }
-    ];
+  const handlePrev = (event) => {
+    event.preventDefault();
+    handleSave(2);
+  };
 
-    const attendEventsHours = [
-        {
-            value: '1-2',
-            label: '1-2',
-        },
-        {
-            value: '2-4',
-            label: '2-4',
-        },
-        {
-            value: '4+',
-            label: '4+',
-        }
-    ]
+  const handleNext = (event) => {
+    event.preventDefault();
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const err = validate();
+    setError(err);
 
-        // const requestBody = { email, password, name, role }
+    if (err) {
+      return;
+    }
 
-        // service.post('/auth/signup', requestBody)
-        //     .then(response => {
-        //         // redirect to login
-        //         navigate('/login')
-        //     })
-        //     .catch(err => {
-        //         const errorDescription = err.response.data.message
-        //         setErrorMessage(errorDescription)
-        //     });
+    handleSave(4);
+  };
 
-        // setName('');
-        // setEmail('');
-        // setPassword('');
-        // setRole('');
-    };
-    
-    const handlePronoun = e => setPronoun(e.target.value)
-    const handleName = e => setName(e.target.value)
-    const handleDateOfBirth = e => setDateOfBirth(e.target.value)
-    const handleEmail = e => setEmail(e.target.value)
-    const handleNationality = e => setNationality(e.target.value)
-    const handleSecondNationality = e => setSecondNationality(e.target.value)
-    const [errorMessage, setErrorMessage] = useState(undefined);
+  const handleSave = (step) => {
+    setApplicationState({learningStyleThoughts, lifestyle, personality, studyCommitment, eventCommitment});    
+    changeStep(step);
+  };
+
+  const handleLearningStyleThoughts = (e) => setLearningStyleThoughts(e.target.value);
+  const handleLifestyle = (e) => setLifestyle(e.target.value);
+  const handlePersonality = (e) => setPersonality(e.target.value);
+  const handleStudyCommitment = (e) => setStudyCommitment(e.target.value);
+  const handleEventCommitment = (e) => setEventCommitment(e.target.value);
+
+  const validate  = () => {
+    if (studyCommitment === "") {
+      return "How many hours per week do you feel you could commit to attending courses and self-studying materials?";
+    }
+
+    if (eventCommitment === "") {
+      return "How many hours per week do you feel you could commit to attending learning events?";
+    }
+  }
 
   return (
     <Container maxWidth="sm">
@@ -118,14 +109,19 @@ export default function Commitments() {
         }}
       >
         <Avatar sx={{ m: 1, bgcolor: "secondary.main", width: 50, height: 50 }}>
-          <LockOutlinedIcon sx={{ fontSize: 32 }} />
+          <AssignmentIcon sx={{ fontSize: 32 }} />
         </Avatar>
         <Typography component="h1" variant="h5">
           Part 3
         </Typography>
         {/* First Screen */}
-        <Box component="form" onSubmit='' sx={{ mt: 3 }}>
+        <Box component="form" onSubmit="" sx={{ mt: 3 }}>
           <Grid container spacing={2}>
+            {error && (
+              <Grid item xs={12} sm={12}>
+                <Alert severity="error">{error}</Alert>
+              </Grid>
+            )}
             <Grid item xs={12} sm={12}>
               <TextField
                 id="outlined-multiline-static"
@@ -134,6 +130,8 @@ export default function Commitments() {
                 rows={4}
                 // defaultValue="Please let us know more about your motivation"
                 style={{ width: "100%" }}
+                value={learningStyleThoughts}
+                onChange={handleLearningStyleThoughts}
               />
             </Grid>
             <Grid item xs={12} sm={12}>
@@ -144,6 +142,8 @@ export default function Commitments() {
                 rows={4}
                 // defaultValue="Please let us know more about your motivation"
                 style={{ width: "100%" }}
+                value={lifestyle}
+                onChange={handleLifestyle}
               />
             </Grid>
             <Grid item xs={12} sm={12}>
@@ -154,6 +154,8 @@ export default function Commitments() {
                 rows={4}
                 // defaultValue="If we asked your friends, what would they say best describes your personality?"
                 style={{ width: "100%" }}
+                value={personality}
+                onChange={handlePersonality}
               />
             </Grid>
             <Grid item xs={6} sm={6}>
@@ -163,12 +165,12 @@ export default function Commitments() {
                 required
                 fullWidth
                 label="Please select an option (hours)"
-                value={selfLearningHours}
-                // onChange={handleSelfLearningHours}
+                value={studyCommitment}
+                onChange={handleStudyCommitment}
                 helperText="How many hours per week do you feel you could commit to attending courses and self-studying materials?"
               >
                 {selfLearningHours.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
+                  <MenuItem key={option.value} value={option.value} selected={option.value === studyCommitment}>
                     {option.label}
                   </MenuItem>
                 ))}
@@ -181,27 +183,49 @@ export default function Commitments() {
                 required
                 fullWidth
                 label="Please select an option (hours)"
-                value={attendEventsHours}
-                // onChange={handleAttendEventsHours}
+                value={eventCommitment}
+                onChange={handleEventCommitment}
                 helperText="How many hours per week do you feel you could commit to attending learning events?"
               >
                 {attendEventsHours.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
+                  <MenuItem key={option.value} value={option.value} selected={option.value === eventCommitment}>
                     {option.label}
                   </MenuItem>
                 ))}
               </TextField>
             </Grid>
           </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2, py: 2 }}
+          <Grid
+            container
+            item
+            xs={12}
+            sm={12}
+            spacing={2}
+            justifyContent="space-between"
           >
-            Submit
-          </Button>
-          {errorMessage && <h5>{errorMessage}</h5>}
+            <Grid item xs={6} sm={6}>
+              <Button
+                type="submit"
+                fullWidth
+                variant="outlined"
+                sx={{ mt: 3, mb: 2, py: 2 }}
+                onClick={handlePrev}
+              >
+                Back
+              </Button>
+            </Grid>
+            <Grid item xs={6} sm={6}>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2, py: 2 }}
+                onClick={handleNext}
+              >
+                Review your application
+              </Button>
+            </Grid>
+          </Grid>
         </Box>
       </Box>
     </Container>

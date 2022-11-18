@@ -2,51 +2,40 @@ import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import {
-  Badge,
-  ImageList,
-  ImageListItem,
-  MenuItem,
-  styled,
-  TextareaAutosize,
-} from "@mui/material";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+import { Alert, MenuItem } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
-import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
-import BackspaceIcon from "@mui/icons-material/Backspace";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState, useReducer } from "react";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { useState } from "react";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import moment from "moment";
 import useLocalStorage from "../../utils/localstorage";
 
-export default function ScreeningQuestions({nextStep}) {
-  const [applicationStep, setApplicationStep] = useLocalStorage("application_step", 0);
+export default function ScreeningQuestions({ changeStep }) {
+  const [applicationState, setApplicationState] = useLocalStorage("application_step_1", {});
 
-  const [pronoun, setPronoun] = useState("");
-  const [name, setName] = useState("");
-  const [dateOfBirth, setDateOfBirth] = useState("");
-  const [email, setEmail] = useState("");
-  const [nationality, setNationality] = useState("");
-  const [secondNationality, setSecondNationality] = useState("");
-
-  const navigate = useNavigate();
+  const [pronoun, setPronoun] = useState(applicationState.pronoun || "");
+  const [name, setName] = useState(applicationState.name || "");
+  const [dateOfBirth, setDateOfBirth] = useState(applicationState.dateOfBirth || "");
+  const [email, setEmail] = useState(applicationState.email || "");
+  const [nationality, setNationality] = useState(applicationState.nationality || "");
+  const [secondNationality, setSecondNationality] = useState(applicationState.secondNationality || "");
+  const [hasWorkPermit, setHasWorkPermit] = useState(applicationState.hasWorkPermit || "");
+  const [isBerliner, setIsBerliner] = useState(applicationState.isBerliner || "");
+  const [canRelocate, setCanRelocate] = useState(applicationState.canRelocate || "");
+  const [error, setError] = useState(undefined);
 
   const yesNo = [
     {
-      value: "yes",
       label: "Yes",
+      value: "yes",
     },
     {
-      value: "no",
       label: "No",
-    }
-  ]
+      value: "no",
+    },
+  ];
 
   const pronouns = [
     {
@@ -61,31 +50,24 @@ export default function ScreeningQuestions({nextStep}) {
       value: "They/Them",
       label: "They/Them",
     },
+    {
+      value: "Discreet",
+      label: "Discreet",
+    },
   ];
 
-  const handleSubmit = (event) => {
+  const handleNext = (event) => {
     event.preventDefault();
 
-    console.log("step 1 finished");
-    // setApplicationStep(2);
-    nextStep(2);
+    const err = validate();
+    setError(err);
+    
+    if (err) {
+      return
+    }
 
-    // const requestBody = { email, password, name, role };
-
-    // service.post('/auth/signup', requestBody)
-    //     .then(response => {
-    //         // redirect to login
-    //         navigate('/login')
-    //     })
-    //     .catch(err => {
-    //         const errorDescription = err.response.data.message
-    //         setErrorMessage(errorDescription)
-    //     });
-
-    // setName('');
-    // setEmail('');
-    // setPassword('');
-    // setRole('');
+    setApplicationState({pronoun, name, dateOfBirth, email, nationality, secondNationality, hasWorkPermit, isBerliner, canRelocate});
+    changeStep(2);
   };
 
   const handlePronoun = (e) => setPronoun(e.target.value);
@@ -94,7 +76,44 @@ export default function ScreeningQuestions({nextStep}) {
   const handleEmail = (e) => setEmail(e.target.value);
   const handleNationality = (e) => setNationality(e.target.value);
   const handleSecondNationality = (e) => setSecondNationality(e.target.value);
-  const [errorMessage, setErrorMessage] = useState(undefined);
+  const handleHasWorkPermit = (e) => setHasWorkPermit(e.target.value);
+  const handleIsBerliner = (e) => setIsBerliner(e.target.value);
+  const handleCanRelocate = (e) => setCanRelocate(e.target.value);
+
+  const validate = () => {
+    // console.log(pronoun, name, dateOfBirth, email, nationality, secondNationality, hasWorkPermit, isBerliner, canRelocate);
+
+    if (pronoun === "") {
+      return "Pronouns is required";
+    }
+
+    if (name === "") {
+      return "Name is required";
+    }
+
+    if (dateOfBirth === "") {
+      return "Date of Birth is required";
+    }
+    else if (!moment(dateOfBirth, 'YYYY-MM-DD',true).isValid()) {
+      return "Invalid Date of Birth";
+    }
+
+    if (nationality === "") {
+      return "Nationality is required";
+    }
+
+    if (hasWorkPermit === "") {
+      return "Do you have work permit in Germany?"
+    }
+
+    if (isBerliner === "") {
+      return "Are you located in Berlin?"
+    }
+
+    if (canRelocate === "") {
+      return "Are you willing to relocate to Berlin?"
+    }
+  }
 
   return (
     <Container maxWidth="sm">
@@ -107,14 +126,19 @@ export default function ScreeningQuestions({nextStep}) {
         }}
       >
         <Avatar sx={{ m: 1, bgcolor: "secondary.main", width: 50, height: 50 }}>
-          <LockOutlinedIcon sx={{ fontSize: 32 }} />
+          <AssignmentIcon sx={{ fontSize: 32 }} />
         </Avatar>
         <Typography component="h1" variant="h5">
           Part 1
         </Typography>
-        {/* First Screen */}
+        
         <Box component="form" onSubmit="" sx={{ mt: 3 }}>
           <Grid container spacing={2}>
+            {error && (
+            <Grid item xs={12} sm={12}>
+              <Alert severity="error">{error}</Alert>
+            </Grid>
+            )}
             <Grid item xs={6} sm={4}>
               <TextField
                 id="pronouns"
@@ -127,7 +151,11 @@ export default function ScreeningQuestions({nextStep}) {
                 helperText="Preferred pronouns"
               >
                 {pronouns.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
+                  <MenuItem
+                    key={option.value}
+                    value={option.value}
+                    selected={option.value === pronoun}
+                  >
                     {option.label}
                   </MenuItem>
                 ))}
@@ -154,8 +182,8 @@ export default function ScreeningQuestions({nextStep}) {
                 // label="Date of birth"
                 type="date"
                 id="dob"
-                // value={password}
-                // onChange={handlePassword}
+                value={dateOfBirth}
+                onChange={handleDateOfBirth}
                 helperText="Date of birth"
               />
             </Grid>
@@ -202,12 +230,16 @@ export default function ScreeningQuestions({nextStep}) {
                 required
                 fullWidth
                 label="Please select"
-                value={yesNo}
-                onChange=""
-                helperText="Do you have work permit in Germany? "
+                value={hasWorkPermit}
+                onChange={handleHasWorkPermit}
+                helperText="Do you have work permit in Germany?"
               >
                 {yesNo.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
+                  <MenuItem
+                    key={option.value}
+                    value={option.value}
+                    selected={option.value === hasWorkPermit}
+                  >
                     {option.label}
                   </MenuItem>
                 ))}
@@ -220,12 +252,16 @@ export default function ScreeningQuestions({nextStep}) {
                 required
                 fullWidth
                 label="Please select"
-                value={yesNo}
-                onChange=""
-                helperText="Are you located in Berlin? "
+                value={isBerliner}
+                onChange={handleIsBerliner}
+                helperText="Are you located in Berlin?"
               >
                 {yesNo.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
+                  <MenuItem
+                    key={option.value}
+                    value={option.value}
+                    selected={option.value === isBerliner}
+                  >
                     {option.label}
                   </MenuItem>
                 ))}
@@ -238,12 +274,16 @@ export default function ScreeningQuestions({nextStep}) {
                 required
                 fullWidth
                 label="Please select"
-                value={yesNo}
-                onChange=""
-                helperText="Are you willing to relocate to Berlin? "
+                value={canRelocate}
+                onChange={handleCanRelocate}
+                helperText="Are you willing to relocate to Berlin?"
               >
                 {yesNo.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
+                  <MenuItem
+                    key={option.value}
+                    value={option.value}
+                    selected={option.value === canRelocate}
+                  >
                     {option.label}
                   </MenuItem>
                 ))}
@@ -255,11 +295,10 @@ export default function ScreeningQuestions({nextStep}) {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2, py: 2 }}
-            onClick={handleSubmit}
+            onClick={handleNext}
           >
             Next
           </Button>
-          {errorMessage && <h5>{errorMessage}</h5>}
         </Box>
       </Box>
     </Container>
