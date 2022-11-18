@@ -9,7 +9,6 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { useState } from "react";
 import { Container, Button, Link } from "@mui/material";
-import logoTechstart from "./../img/logoTechstart.png";
 
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -34,11 +33,6 @@ export default function Navbar() {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
-  // const handleScrollIntoView = () => {
-  // ref.current?.scrollIntoView({behavior: "smooth"})
-  // }
-
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
@@ -78,19 +72,19 @@ export default function Navbar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      <MenuItem component={Link} href="/#intro">
         <p>ABOUT US</p>
       </MenuItem>
-      <MenuItem>
+      <MenuItem component={Link} href="/#testimonials">
         <p>TESTIMONIALS</p>
       </MenuItem>
-      <MenuItem>
+      <MenuItem component={Link} href="/#overview">
         <p>PROGRAM</p>
       </MenuItem>
-      <MenuItem>
+      <MenuItem component={Link} href="/#faq">
         <p>FAQ</p>
       </MenuItem>
-      <MenuItem>
+      <MenuItem component={Link} href="/#ourteam">
         <p>CONTACT US</p>
       </MenuItem>
       <MenuItem>
@@ -123,7 +117,7 @@ export default function Navbar() {
         position="static"
         style={{ backgroundColor: "#F8F9FF", marginBottom: "1.5rem" }}
       >
-        <Container maxWidth="xl">
+        <Container maxWidth="100%">
           <Toolbar>
             <Link href="/" style={{ color: "black", textDecoration: "none" }}>
               <Box
@@ -133,7 +127,7 @@ export default function Navbar() {
                   height: "auto",
                 }}
                 alt="Techstart logo"
-                src={logoTechstart}
+                src="https://res.cloudinary.com/dymdurqej/image/upload/v1668034912/techstart/Main_d5iufy.png"
               />
             </Link>
             <Box sx={{ flexGrow: 1 }} />
@@ -145,7 +139,10 @@ export default function Navbar() {
                 alignItems: "center",
               }}
             >
-              <Link href="/#intro" style={{ textDecoration: "none", color: "black" }}>
+              <Link
+                href="/#intro"
+                style={{ textDecoration: "none", color: "black" }}
+              >
                 <Typography
                   variant="button"
                   noWrap
@@ -168,7 +165,10 @@ export default function Navbar() {
                   TESTIMONIALS
                 </Typography>
               </Link>
-              <Link href="/#overview" style={{ textDecoration: "none", color: "black" }}>
+              <Link
+                href="/#overview"
+                style={{ textDecoration: "none", color: "black" }}
+              >
                 <Typography
                   variant="button"
                   noWrap
@@ -178,7 +178,10 @@ export default function Navbar() {
                   PROGRAM
                 </Typography>
               </Link>
-              <Link href="/#faq" style={{ textDecoration: "none", color: "black" }}>
+              <Link
+                href="/#faq"
+                style={{ textDecoration: "none", color: "black" }}
+              >
                 <Typography
                   variant="button"
                   noWrap
