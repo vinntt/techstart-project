@@ -23,15 +23,12 @@ export default function OurTeam() {
           </Typography>
           <Grid item>
             <Typography variant="h6" align="left">
-              Eget augue in et ac sagittis senectus sit maecenas tristique.
-              Pellentesque cras proin quis leo maecenas sed cursus. In eu diam
-              metus odio nisl at. At tortor sollicitudin at sem. Leo ornare
-              lectus hac.
+            We happily answer any questions about the Techstart program – whether you’re interested in joining yourself, supporting the program, or something completely different. Reach out, we’re looking forward to hearing from you.
             </Typography>
           </Grid>
           <Grid item>
             <Button
-              href="/application"
+              href="/contact"
               type="submit"
               fullWidth
               variant="button"
@@ -66,6 +63,7 @@ export default function OurTeam() {
                 boxShadow: "0px 2px 0px #030211",
               }}
               src="https://ca.slack-edge.com/T54B2S3T9-U02FF6NM83Z-b35bcd0f2663-512"
+              alt="antonia"
             />
             <Typography
               variant="h6"
@@ -89,6 +87,7 @@ export default function OurTeam() {
                 boxShadow: "0px 2px 0px #030211",
               }}
               src="https://ca.slack-edge.com/T54B2S3T9-U01AVSVCZNY-e6cc90c1d2ee-512"
+              alt="lauren"
             />
             <Typography
               variant="h6"

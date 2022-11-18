@@ -7,21 +7,18 @@ import { Container } from "@mui/system";
 function Intro() {
   return (
       <Container id="intro" maxWidth="xl" style={{ backgroundColor: "inherit", padding: "5rem 5rem"}}>
-      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 2 }}>
           <Grid container xs={6} style={{ padding: "0 3rem"}}>
             <Typography
               variant="h2"
               align="left"
-              style={{ fontWeight: "bold", paddingBottom: "2rem"}}
+              style={{ fontWeight: "bold", paddingBottom: "2rem", textAlign:"left"}}
             >
-              Your future starts now!
+              Tailored to your ambition!
             </Typography>
             <Grid item>
-              <Typography variant="h6" align="left">
-                Eget augue in et ac sagittis senectus sit maecenas tristique.
-                Pellentesque cras proin quis leo maecenas sed cursus. In eu diam
-                metus odio nisl at. At tortor sollicitudin at sem. Leo ornare
-                lectus hac.
+              <Typography variant="body1" align="justify" lineHeight={2} fontSize={18}>
+              Techstart is a program for <b>forced</b> and underprivileged <b>voluntary</b> migrants who want to take the leap and <b>re-</b>enter the tech workforce in Germany. You get to access all classes at CODE University of Applied Sciences in Software Engineering, Interaction Design, and Product Management while upgrading your practical skills by working on a hands-on group or solo project of your choice. Are you ready for take-off? We prepare you to take on an internship or <b>entry-level</b> position and help you find it.
               </Typography>
             </Grid>
             <Grid item >
